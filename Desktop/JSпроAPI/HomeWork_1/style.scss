@@ -1,0 +1,65 @@
+@import 'vars';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.menu {
+    min-width: 1000px;
+}
+
+.container {
+    max-width: 500px;
+    border: 2px solid rgb(233, 144, 222);
+    border-radius: 10px;
+    color: $mainColor;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 30px auto;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.headding {
+    text-align: center;
+    color: $mainColor;
+}
+
+.infoClass {
+    max-width: 600px;
+    gap: 20px;
+
+    &__name {
+        color: rgba(217, 160, 208, 0.928);
+    }
+}
+
+.btn {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    &__style {
+        background-color: rgb(255, 240, 254);
+        color: $mainColor;
+        width: 100px;
+        min-height: 35px;
+        border: 1px solid $mainColor;
+        border-radius: 7px;
+        cursor: pointer;
+        box-shadow: 0 6px 0 var(--primary-dark), 0 5px 15px -4px #000;
+        transition: box-shadow 0.2s ease-in-out, margin-top 0.2s ease-in-out,
+        opacity 0.2s ease-in-out;
+    }
+}
+
+
+.btn__style:hover {
+    box-shadow: (6px 4px 35px rgba(0, 0, 0, 0.21));
+}
+
+.btn__style:active {
+    position: relative;
+    top: 1px;
+}
