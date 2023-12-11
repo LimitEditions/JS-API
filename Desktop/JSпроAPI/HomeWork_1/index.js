@@ -38,7 +38,7 @@ async function fetchData() {
 
         const menu = document.querySelector(".menu");
         menu.innerHTML = '';
-
+// шаблон для загрузки JSON файла
         data.forEach(({ id, name, time, maxParticipants, currentParticipants }) => {
             const infoClass = `
             <div class="container">
@@ -55,9 +55,8 @@ async function fetchData() {
             </div>`;
             menu.insertAdjacentHTML("beforeend", infoClass);
         });
-
+// действия при клике  на кнопку "Записаться"
         const btnAdd = document.querySelectorAll('.btn__add');
-        const btnRemove = document.querySelectorAll('.btn__remove');
         btnAdd.forEach((btn, index) => {
             btn.addEventListener('click', () => {
                 if (data[index].currentParticipants === data[index].maxParticipants) {
@@ -68,28 +67,32 @@ async function fetchData() {
                     btnRemove.innerText = 'Отменить запись';
                     btnRemove.className = 'btn__style btn__remove';
                     container.querySelector('.btn').appendChild(btnRemove);
-
-                    btn.addEventListener('click', () => {
+// Действия при клике на кнопку "Отменить запись"
+                    btnRemove.addEventListener('click', () => {
                         const container = btn.closest('.container');
                         const current = container.querySelector('.current-value');
+// Уменьшаем количество участников при клике на кнопку "Отменить запись"
                         data[index].currentParticipants--;
                         current.innerText = data[index].currentParticipants.toString();
-                        btn.style.display = 'none';
+                        btnRemove.style.display = 'none';
+                        btn.style.display = 'block';
+//  Сохраняем данные в Local Storage
                         saveDataToLocalStorage(data);
-                        data[index].currentParticipants++;
-                        const current = container.querySelector('.current-value');
-                        current.innerText = data[index].currentParticipants.toString();
-                        saveDataToLocalStorage(data);
-                    })
-            }, { once: true });
+                    });
+// Увеличиваем количество участников при клике на кнопку "Записаться"
+                    data[index].currentParticipants++;
+                    const current = container.querySelector('.current-value');
+                    current.innerText = data[index].currentParticipants.toString();
+                    btn.style.display = 'none';
+                    btnRemove.style.display = 'block';
+//  Сохраняем данные в Local Storage
+                    saveDataToLocalStorage(data);
+                }
+            })
         });
-
-
-    }, { once: true });
-});
     } catch (error) {
-    console.error(error);
-}
+        console.error(error);
+    }
 }
 
 function saveDataToLocalStorage(data) {
