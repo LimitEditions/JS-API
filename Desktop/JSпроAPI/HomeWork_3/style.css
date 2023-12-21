@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+.container{
+    max-width: 1000px;
+    background-color: rgb(242, 246, 247);
+}
+
+.heading{
+    font-size: 48px;
+    font-weight: 700;
+    color: rgb(51, 51, 112);
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.subheading{
+    font-size: 32px;
+    font-weight: 500;
+    color: rgb(87, 87, 224);
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.container-card{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-img img{
+    height: 45vh;;
+}
+.container-img{
+    width: 280px;
+    min-height: 400px;
+    background-color: ghostwhite;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    background-color:  rgb(208, 223, 228);
+}
+
+.img{
+    width: 100%;
+}
+
+.authorName{
+    text-align: center;
+    font-size: 18px;
+    color: rgb(51, 51, 112);
+}
+
+.like{
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    margin-right: 20px;
+margin-bottom: 15px;
+}
+
+.like__img{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.like__img:hover path{
+    fill: crimson;
+}
+
+.like__count{
+    font-weight: 700;
+    color: rgb(51, 51, 112);
+}
+
+  
